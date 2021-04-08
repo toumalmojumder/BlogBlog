@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.toumal.blogblog.Data.RBlog;
@@ -39,12 +40,18 @@ private RBlogViewModel rBlogViewModel;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 View view = inflater.inflate(R.layout.fragment_add, container, false);
-        TextInputLayout title,description,cover_photo,categories,name,avatar,profession;
+        TextInputLayout title,description,name,avatar,profession;
+        CheckBox checkBoxOne,checkBoxTwo,checkBoxThree,checkBoxFour;
+
         Button button;
         title = view.findViewById(R.id.Title_ED);
         description = view.findViewById(R.id.description_ED);
-        cover_photo = view.findViewById(R.id.cover_photo_ED);
-        categories = view.findViewById(R.id.categories_ED);
+
+        checkBoxOne=view.findViewById(R.id.categories_one);
+        checkBoxTwo=view.findViewById(R.id.categories_two);
+        checkBoxThree=view.findViewById(R.id.categories_three);
+        checkBoxFour=view.findViewById(R.id.categories_four);
+
         name = view.findViewById(R.id.name_ED);
         avatar = view.findViewById(R.id.avatar_ED);
         profession = view.findViewById(R.id.profession_ED);
@@ -56,13 +63,17 @@ View view = inflater.inflate(R.layout.fragment_add, container, false);
             public void onClick(View v) {
                 String titleST = title.getEditText().getText().toString();
                 String  descriptionST =description.getEditText().getText().toString();
-                String cover_photoST =cover_photo.getEditText().getText().toString();
-                String categoriesST =categories.getEditText().getText().toString();
+
+                String categoriesOne = (checkBoxOne.isChecked())? checkBoxOne.getText().toString():" ";
+                String categoriesTwo = (checkBoxTwo.isChecked())? checkBoxTwo.getText().toString():" ";
+                String categoriesThree = (checkBoxThree.isChecked())? checkBoxThree.getText().toString():" ";
+                String categoriesFour = (checkBoxFour.isChecked())? checkBoxFour.getText().toString():" ";
+                String categoriesST = categoriesOne+" "+categoriesTwo+" "+categoriesThree+" "+categoriesFour;
                 String nameST =name.getEditText().getText().toString();
                 String  avatarST = avatar.getEditText().getText().toString();
                 String professionST=profession.getEditText().getText().toString();
 
-                RBlog rBlog = new RBlog(0,titleST,descriptionST,cover_photoST,categoriesST,nameST,avatarST,professionST);
+                RBlog rBlog = new RBlog(0,titleST,descriptionST,null,categoriesST,nameST,avatarST,professionST);
                if (title!=null){
                    rBlogViewModel.addRBlog(rBlog);
                    Navigation.findNavController(requireView()).navigate(R.id.action_addFragment_to_listFragment);

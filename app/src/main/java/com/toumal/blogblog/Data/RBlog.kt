@@ -3,6 +3,7 @@ package com.toumal.blogblog.Data
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import androidx.versionedparcelable.ParcelField
 import kotlinx.android.parcel.Parcelize

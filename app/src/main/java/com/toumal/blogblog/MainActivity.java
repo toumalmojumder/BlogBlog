@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
     private void putDataIntoRoom(List<Blog> blogList) {
 
@@ -76,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             String nameST =blogList.get(i).getAuthors().getName();
             String  avatarST = blogList.get(i).getAuthors().getAvatar();
             String professionST=blogList.get(i).getAuthors().getProfession();
-
             RBlog rBlog = new RBlog(0,titleST,descriptionST,cover_photoST,categories,nameST,avatarST,professionST);
             rBlogViewModel.addRBlog(rBlog);
         }

@@ -53,33 +53,42 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cover_photo_ED"
+
+
+        <CheckBox
+            android:id="@+id/categories_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cover photo Link:"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/categories_ED"
+            android:text="Business"
+            />
+        <CheckBox
+            android:id="@+id/categories_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Categories:"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:text="Lifestyle"
+            />
+        <CheckBox
+            android:id="@+id/categories_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entertainment"
+            />
+        <CheckBox
+            android:id="@+id/categories_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Productivity"
+            />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Author Information:"
+            android:layout_marginTop="30dp"
+            android:textSize="26sp"
+            android:textColor="@android:color/holo_green_light"
+            />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_ED"
