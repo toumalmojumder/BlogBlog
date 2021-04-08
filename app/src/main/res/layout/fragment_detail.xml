@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:fitsSystemWindows="true"
-        android:theme="@style/Theme.BlogBlog"
+        android:theme="@style/DetailView"
         android:background="@drawable/ctr_bg"
 
         >
@@ -89,8 +89,8 @@
 
             <TextView
                 android:id="@+id/category_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="115dp"
+                android:layout_height="81dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:text="category_detail"
