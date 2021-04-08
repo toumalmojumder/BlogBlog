@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.toumal.blogblog.Data.RBlog;
 
 import com.toumal.blogblog.R;
@@ -24,7 +25,8 @@ RBlog rBlog;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        TextView   title,desc,categories,name,profession;
+        CollapsingToolbarLayout title;
+        TextView   desc,categories,name,profession;
         ImageView cover_photo,avater;
 
         title=view.findViewById(R.id.title_detail);
@@ -48,11 +50,16 @@ RBlog rBlog;
             String  avatarST = rBlog.getAvatar();
             String professionST=rBlog.getProfession();
 
-            title.setText(titleST);
+            title.setTitle(titleST);
             desc.setText(descriptionST);
             categories.setText(categoriesST);
             name.setText(nameST);
             profession.setText(professionST);
+
+                Glide.with(this)
+                        .load(cover_photoST)
+                        .apply(new RequestOptions().override(600, 500))
+                        .into(cover_photo);
 
             Glide.with(this)
                     .load(cover_photoST)
