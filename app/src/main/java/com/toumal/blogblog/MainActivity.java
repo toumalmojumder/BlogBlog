@@ -63,16 +63,22 @@ public class MainActivity extends AppCompatActivity {
     private void putDataIntoRoom(List<Blog> blogList) {
 
         for (int i=0;i<blogList.size();i++){
+            StringBuffer sb = new StringBuffer();
             String titleST = blogList.get(i).getTitle();
             String  descriptionST =blogList.get(i).getDescription();
             String cover_photoST =blogList.get(i).getCover_photo();
-            String categoriesST =blogList.get(i).getCategories().toString();
+            String[] categoriesST =blogList.get(i).getCategories();
+            for (int a=0;a<categoriesST.length;a++){
+                sb.append(categoriesST[a]);
+                sb.append(" ");
+            }
+            String categories= sb.toString();
             String nameST =blogList.get(i).getAuthors().getName();
             String  avatarST = blogList.get(i).getAuthors().getAvatar();
             String professionST=blogList.get(i).getAuthors().getProfession();
-            RBlog rBlog = new RBlog(0,titleST,descriptionST,cover_photoST,categoriesST,nameST,avatarST,professionST);
-            rBlogViewModel.addRBlog(rBlog);
 
+            RBlog rBlog = new RBlog(0,titleST,descriptionST,cover_photoST,categories,nameST,avatarST,professionST);
+            rBlogViewModel.addRBlog(rBlog);
         }
     }
 }

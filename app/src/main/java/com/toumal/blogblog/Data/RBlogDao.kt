@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 @Dao
 interface RBlogDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertRBlog(rBlog: RBlog)
 
     @Query("SELECT * FROM blog_table ORDER BY title ASC")
