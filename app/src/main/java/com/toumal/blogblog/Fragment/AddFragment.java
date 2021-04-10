@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -109,6 +110,16 @@ View view = inflater.inflate(R.layout.fragment_add, container, false);
         outState.putBoolean("categoriesTwo",checkBoxTwo.isChecked());
         outState.putBoolean("categoriesThree",checkBoxThree.isChecked());
         outState.putBoolean("categoriesFour",checkBoxFour.isChecked());
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Add New Blog");
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Blog");
     }
 
 }
