@@ -3,6 +3,7 @@ package com.toumal.blogblog.Fragment;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,6 +22,8 @@ import com.toumal.blogblog.RBlogViewModel;
 
 public class AddFragment extends Fragment {
 private RBlogViewModel rBlogViewModel;
+    TextInputLayout title,description,name,avatar,profession;
+    CheckBox checkBoxOne,checkBoxTwo,checkBoxThree,checkBoxFour;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +43,7 @@ private RBlogViewModel rBlogViewModel;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 View view = inflater.inflate(R.layout.fragment_add, container, false);
-        TextInputLayout title,description,name,avatar,profession;
-        CheckBox checkBoxOne,checkBoxTwo,checkBoxThree,checkBoxFour;
+
 
         Button button;
         title = view.findViewById(R.id.Title_ED);
@@ -58,6 +60,17 @@ View view = inflater.inflate(R.layout.fragment_add, container, false);
         button = view.findViewById(R.id.addToRoomButton);
 
         rBlogViewModel = new ViewModelProvider(this).get(RBlogViewModel.class);
+        if(savedInstanceState!=null){
+            title.getEditText().setText(savedInstanceState.getString("titleST"));
+            description.getEditText().setText(savedInstanceState.getString("descriptionST"));
+            name.getEditText().setText(savedInstanceState.getString("nameST"));
+            avatar.getEditText().setText(savedInstanceState.getString("avatarST"));
+            profession.getEditText().setText(savedInstanceState.getString("professionST"));
+            checkBoxOne.setChecked(savedInstanceState.getBoolean("categoriesOne"));
+            checkBoxTwo.setChecked(savedInstanceState.getBoolean("categoriesTwo"));
+            checkBoxThree.setChecked(savedInstanceState.getBoolean("categoriesThree"));
+            checkBoxFour.setChecked(savedInstanceState.getBoolean("categoriesFour"));
+        }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +83,7 @@ View view = inflater.inflate(R.layout.fragment_add, container, false);
                 String categoriesFour = (checkBoxFour.isChecked())? checkBoxFour.getText().toString():" ";
                 String categoriesST = categoriesOne+" "+categoriesTwo+" "+categoriesThree+" "+categoriesFour;
                 String nameST =name.getEditText().getText().toString();
-                String  avatarST = avatar.getEditText().getText().toString();
+                String avatarST = avatar.getEditText().getText().toString();
                 String professionST=profession.getEditText().getText().toString();
 
                 RBlog rBlog = new RBlog(0,titleST,descriptionST,null,categoriesST,nameST,avatarST,professionST);
@@ -82,4 +95,19 @@ View view = inflater.inflate(R.layout.fragment_add, container, false);
         });
         return view;
     }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("titleST",title.getEditText().getText().toString());
+        outState.putString("descriptionST",description.getEditText().getText().toString());
+        outState.putString("nameST",name.getEditText().getText().toString());
+        outState.putString("avatarST",avatar.getEditText().getText().toString());
+        outState.putString("professionST",profession.getEditText().getText().toString());
+        outState.putBoolean("categoriesOne",checkBoxOne.isChecked());
+        outState.putBoolean("categoriesTwo",checkBoxTwo.isChecked());
+        outState.putBoolean("categoriesThree",checkBoxThree.isChecked());
+        outState.putBoolean("categoriesFour",checkBoxFour.isChecked());
+    }
+
 }

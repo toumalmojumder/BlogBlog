@@ -56,15 +56,10 @@ RBlog rBlog;
             name.setText(nameST);
             profession.setText(professionST);
 
-                Glide.with(this)
+            Glide.with(this)
                         .load(cover_photoST)
                         .apply(new RequestOptions().override(600, 500))
                         .into(cover_photo);
-
-            Glide.with(this)
-                    .load(cover_photoST)
-                    .apply(new RequestOptions().override(600, 500))
-                    .into(cover_photo);
 
             Glide.with(this)
                     .load(avatarST)
