@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".Fragment.DetailFragment"
     android:background="@drawable/ctr_bg"
+    android:theme="@style/Theme.Design.NoActionBar"
     >
 
     <com.google.android.material.appbar.AppBarLayout
@@ -100,7 +102,9 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/avater_detail"
                 app:layout_constraintTop_toTopOf="@+id/avater_detail"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                android:textColor="@color/black"
+                />
             <TextView
                 android:id="@+id/profession_detail"
                 android:layout_width="wrap_content"
@@ -127,7 +131,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/category_detail"
                 app:layout_constraintStart_toStartOf="@+id/avater_detail"
                 app:layout_constraintTop_toBottomOf="@+id/avater_detail"
-
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

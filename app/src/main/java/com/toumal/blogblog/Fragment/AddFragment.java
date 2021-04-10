@@ -32,7 +32,8 @@ private RBlogViewModel rBlogViewModel;
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                // Handle the back button event
+
+                Navigation.findNavController(requireView()).navigate(R.id.action_addFragment_to_listFragment);
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
