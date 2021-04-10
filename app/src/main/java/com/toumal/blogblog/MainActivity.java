@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i=0;i<blogList.size();i++){
             StringBuffer sb = new StringBuffer();
+            int ID = blogList.get(i).getId();
             String titleST = blogList.get(i).getTitle();
             String  descriptionST =blogList.get(i).getDescription();
             String cover_photoST =blogList.get(i).getCover_photo();
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             String nameST =blogList.get(i).getAuthors().getName();
             String  avatarST = blogList.get(i).getAuthors().getAvatar();
             String professionST=blogList.get(i).getAuthors().getProfession();
-            RBlog rBlog = new RBlog(0,titleST,descriptionST,cover_photoST,categories,nameST,avatarST,professionST);
+            RBlog rBlog = new RBlog(ID,titleST,descriptionST,cover_photoST,categories,nameST,avatarST,professionST);
             rBlogViewModel.addRBlog(rBlog);
         }
     }
